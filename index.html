@@ -639,6 +639,74 @@
     background: var(--cyan); flex-shrink: 0; opacity: 0.7;
   }
 
+  .layer-cards-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .lc-card {
+    flex: 1;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+  .lc-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+  }
+  .lc-raw    { background: linear-gradient(180deg, rgba(18,18,46,0.95), rgba(12,12,38,0.95)); border-color: rgba(107,107,255,0.25); }
+  .lc-bronze { background: linear-gradient(180deg, rgba(26,18,8,0.95), rgba(18,12,4,0.95));   border-color: rgba(205,138,58,0.25); }
+  .lc-silver { background: linear-gradient(180deg, rgba(14,26,46,0.95), rgba(8,18,36,0.95));  border-color: rgba(90,172,255,0.25); }
+  .lc-gold   { background: linear-gradient(180deg, rgba(26,20,0,0.95), rgba(18,14,0,0.95));   border-color: rgba(255,215,0,0.25); }
+  .lc-ia     { background: linear-gradient(180deg, rgba(10,26,26,0.95), rgba(4,18,18,0.95));  border-color: rgba(0,207,255,0.3); }
+  .lc-card-header {
+    padding: 12px 14px 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .lc-card-name {
+    font-family: 'Barlow', sans-serif;
+    font-size: 18px; font-weight: 900;
+    letter-spacing: 0.5px; line-height: 1;
+    margin-bottom: 3px;
+  }
+  .lc-raw    .lc-card-name { color: #9999ff; }
+  .lc-bronze .lc-card-name { color: #cd8a3a; }
+  .lc-silver .lc-card-name { color: #5aacff; }
+  .lc-gold   .lc-card-name { color: #ffd700; }
+  .lc-ia     .lc-card-name { color: var(--cyan); }
+  .lc-card-badge {
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+  .lc-card-body {
+    padding: 10px 14px;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .lc-item {
+    font-size: 13px; color: rgba(255,255,255,0.85);
+    line-height: 1.45; padding-left: 10px;
+    border-left: 2px solid rgba(255,255,255,0.1);
+  }
+  .lc-qtc {
+    display: inline-block;
+    font-size: 9px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase;
+    background: rgba(0,207,255,0.12); color: var(--cyan);
+    border: 1px solid rgba(0,207,255,0.2);
+    padding: 1px 5px; border-radius: 3px; margin-right: 4px;
+  }
+  .lc-card-result {
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.04);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-size: 12px; color: rgba(255,255,255,0.6);
+    line-height: 1.45; font-style: italic;
+  }
+
   /* ══════════════════════════════════════
      SLIDE 4 — CDC
   ══════════════════════════════════════ */
@@ -983,13 +1051,13 @@
   /* ══════════════════════════════════════
      SLIDE 8 — FECHAMENTO + CTA
   ══════════════════════════════════════ */
-  #slide-8.active {
+  #slide-7.active {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto auto;
   }
-  #slide-8 .slide-header { grid-column: 1 / -1; }
-  #slide-8 .slide-footer { grid-column: 1 / -1; }
+  #slide-7 .slide-header { grid-column: 1 / -1; }
+  #slide-7 .slide-footer { grid-column: 1 / -1; }
 
   .closing-left {
     display: flex; flex-direction: column;
@@ -1126,6 +1194,190 @@
   }
 
   ::-webkit-scrollbar { display: none; }
+
+  /* ══════════════════════════════════════
+     SLIDE 3 — DADOS CONFIÁVEIS
+  ══════════════════════════════════════ */
+  .trusted-body {
+    flex: 1; display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px 64px;
+    gap: 20px;
+  }
+  .trusted-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  .trusted-left {
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .trusted-statement {
+    background: linear-gradient(135deg, rgba(0,207,255,0.08), rgba(26,26,232,0.12));
+    border: 1px solid rgba(0,207,255,0.2);
+    border-radius: 14px;
+    padding: 20px 24px;
+  }
+  .ts-title {
+    font-family: 'Barlow', sans-serif;
+    font-size: clamp(20px, 2.2vw, 30px);
+    font-weight: 900;
+    color: white; line-height: 1.2;
+    margin-bottom: 10px;
+    letter-spacing: -0.3px;
+  }
+  .ts-title .accent { color: var(--cyan); }
+  .ts-subtitle {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+  }
+  .trusted-bullets {
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .tb-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 12px 16px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  .tb-item:hover {
+    background: rgba(0,207,255,0.06);
+    border-color: rgba(0,207,255,0.15);
+  }
+  .tb-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--cyan); flex-shrink: 0; margin-top: 6px;
+  }
+  .tb-text { font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.5; }
+  .tb-text strong { color: white; }
+
+  .trusted-right {
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .trust-metrics {
+    display: flex; gap: 10px;
+  }
+  .trust-metric {
+    flex: 1; border-radius: 12px;
+    padding: 16px 12px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  .trust-metric:hover { transform: translateY(-4px); }
+  .tm-value {
+    font-family: 'Barlow', sans-serif;
+    font-size: 28px; font-weight: 900;
+    color: var(--cyan); line-height: 1;
+    margin-bottom: 4px;
+  }
+  .tm-label {
+    font-size: 9px; color: rgba(255,255,255,0.45);
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .trust-score-box {
+    background: linear-gradient(135deg, rgba(0,207,255,0.1), rgba(26,26,232,0.15));
+    border: 1px solid rgba(0,207,255,0.25);
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .tsb-icon { font-size: 32px; flex-shrink: 0; }
+  .tsb-title {
+    font-family: 'Barlow', sans-serif;
+    font-size: 18px; font-weight: 900;
+    color: var(--cyan); margin-bottom: 3px;
+  }
+  .tsb-desc { font-size: 11px; color: rgba(255,255,255,0.55); line-height: 1.4; }
+  .trust-tags {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .trust-tag {
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 20px;
+    background: rgba(77,77,255,0.12);
+    border: 1px solid rgba(77,77,255,0.25);
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* ══════════════════════════════════════
+     SLIDE 5 — CAMADAS
+  ══════════════════════════════════════ */
+  .layers-full-body {
+    flex: 1; display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 16px 64px 24px;
+    gap: 12px;
+  }
+  .layer-row {
+    display: grid;
+    grid-template-columns: 90px 1fr 1fr 1fr;
+    gap: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.07);
+    transition: transform 0.25s ease;
+    min-height: 64px;
+  }
+  .layer-row:hover { transform: translateX(4px); }
+
+  .lr-name {
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    padding: 12px 8px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px; font-weight: 900;
+    letter-spacing: 0.5px;
+    text-align: center;
+  }
+  .lr-badge {
+    font-size: 8px; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    margin-top: 4px; opacity: 0.6;
+  }
+  .lr-col {
+    padding: 12px 16px;
+    border-left: 1px solid rgba(255,255,255,0.06);
+    display: flex; flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+  }
+  .lr-col-title {
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .lr-col-text {
+    font-size: 11px; color: rgba(255,255,255,0.75);
+    line-height: 1.5;
+  }
+
+  .row-raw    { background: rgba(18,18,46,0.9); }
+  .row-bronze { background: rgba(26,18,8,0.9); }
+  .row-silver { background: rgba(14,26,46,0.9); }
+  .row-gold   { background: rgba(26,20,0,0.9); }
+  .row-ia     { background: rgba(10,26,26,0.9); }
+
+  .name-raw    { background: rgba(107,107,255,0.2); color: #9999ff; }
+  .name-bronze { background: rgba(205,138,58,0.2); color: #cd8a3a; }
+  .name-silver { background: rgba(90,172,255,0.2); color: #5aacff; }
+  .name-gold   { background: rgba(255,215,0,0.2);  color: #ffd700; }
+  .name-ia     { background: rgba(0,207,255,0.2);  color: var(--cyan); }
+
+  .col-title-raw    { color: rgba(107,107,255,0.7); }
+  .col-title-bronze { color: rgba(205,138,58,0.7); }
+  .col-title-silver { color: rgba(90,172,255,0.7); }
+  .col-title-gold   { color: rgba(255,215,0,0.7); }
+  .col-title-ia     { color: rgba(0,207,255,0.7); }
+
 </style>
 </head>
 <body>
@@ -1167,7 +1419,7 @@
       <div class="pipeline-visual">
         <div class="pipeline-step">
           <div class="step-icon icon-source">🏪</div>
-          <div><div class="step-label">NV Ferragens CRM</div><div class="step-desc">MySQL · múltiplas tabelas</div></div>
+          <div><div class="step-label">NV Ferragens ERP</div><div class="step-desc">MySQL · múltiplas tabelas</div></div>
           <div class="step-badge badge-grey">Source</div>
         </div>
         <div class="step-arrow"><div class="arrow-dots"><div class="adot"></div><div class="adot"></div><div class="adot"></div><div class="apoint"></div></div></div>
@@ -1199,7 +1451,7 @@
     <div class="slide-footer">
       <div class="footer-left">Fundação de Dados para IA e Analytics</div>
       <div style="display:flex;align-items:center;gap:16px;">
-        <div class="slide-counter">01 / 08</div>
+        <div class="slide-counter">01 / 07</div>
         <img src="logo-nv-white.png" alt="NowVertical" style="height:18px;width:auto;opacity:0.3;">
       </div>
     </div>
@@ -1251,14 +1503,69 @@
     <div class="slide-footer">
       <div class="footer-left">Fundação de Dados para IA e Analytics</div>
       <div style="display:flex;align-items:center;gap:16px;">
-        <div class="slide-counter">02 / 08</div>
+        <div class="slide-counter">02 / 07</div>
         <img src="logo-nv-white.png" alt="NowVertical" style="height:18px;width:auto;opacity:0.3;">
       </div>
     </div>
   </div>
 
-  <!-- ══════════════ SLIDE 3 — ARQUITETURA ══════════════ -->
+
+  <!-- ══════════════ SLIDE 3 — DADOS CONFIÁVEIS ══════════════ -->
   <div class="slide" id="slide-3">
+    <div class="glow-line"></div>
+    <div class="slide-header">
+      <img src="logo-nv-white.png" alt="NowVertical" style="height:28px;width:auto;">
+      <div class="header-tag">Como endereçamos</div>
+    </div>
+    <div class="trusted-body">
+      <div class="eyebrow">A resposta para o problema</div>
+      <h2 class="slide-title">Entregando dados <span class="accent">confiáveis</span></h2>
+      <div class="trusted-grid">
+        <div class="trusted-left">
+          <div class="trusted-statement">
+            <div class="ts-title">Dados atualizados,<br>precisos e com <span class="accent">governança.</span></div>
+            <div class="ts-subtitle">A fundação que habilita IA responsável — não como promessa, mas como entrega mensurável.</div>
+          </div>
+          <div class="trusted-bullets">
+            <div class="tb-item"><div class="tb-dot"></div><div class="tb-text"><strong>Disponibilize dados em tempo real e near real-time</strong> para viabilizar IA responsável.</div></div>
+            <div class="tb-item"><div class="tb-dot"></div><div class="tb-text"><strong>Acesse conjuntos de dados prontos para uso</strong> — curados, governados e com contexto.</div></div>
+            <div class="tb-item"><div class="tb-dot"></div><div class="tb-text"><strong>Avalie, monitore e melhore continuamente</strong> a confiabilidade dos seus dados.</div></div>
+          </div>
+        </div>
+        <div class="trusted-right">
+          <div class="trust-score-box">
+            <div class="tsb-icon">🛡️</div>
+            <div>
+              <div class="tsb-title">Qlik Trust Score™</div>
+              <div class="tsb-desc">Métricas de confiança aplicadas a cada produto de dado — validade, completude e qualidade em tempo real.</div>
+            </div>
+          </div>
+          <div class="trust-metrics">
+            <div class="trust-metric"><div class="tm-value">93.4%</div><div class="tm-label">Trust Score</div></div>
+            <div class="trust-metric"><div class="tm-value">93%</div><div class="tm-label">Validity</div></div>
+            <div class="trust-metric"><div class="tm-value">96%</div><div class="tm-label">Completeness</div></div>
+          </div>
+          <div class="trust-tags">
+            <div class="trust-tag">Governança</div>
+            <div class="trust-tag">Qualidade</div>
+            <div class="trust-tag">Near Real-time</div>
+            <div class="trust-tag">Lineage</div>
+            <div class="trust-tag">Data Products</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <div class="footer-left">Fundação de Dados para IA e Analytics</div>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <div class="slide-counter">03 / 07</div>
+        <img src="logo-nv-white.png" alt="NowVertical" style="height:18px;width:auto;opacity:0.3;">
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ SLIDE 4 — ARQUITETURA ══════════════ -->
+  <div class="slide" id="slide-4">
     <div class="glow-line"></div>
     <div class="slide-header">
       <img src="logo-nv-white.png" alt="NowVertical" style="height:28px;width:auto;">
@@ -1271,7 +1578,7 @@
         <div class="arch-card ac-source">
           <div class="ac-mile">1st Mile</div>
           <div class="ac-icon">🏪</div>
-          <div class="ac-name">NV Ferragens CRM</div>
+          <div class="ac-name">NV Ferragens ERP</div>
           <div class="ac-desc">MySQL · múltiplas tabelas · 12 lojas + e-commerce</div>
           <div class="ac-badge">Source</div>
         </div>
@@ -1328,160 +1635,120 @@
     <div class="slide-footer">
       <div class="footer-left">Fundação de Dados para IA e Analytics</div>
       <div style="display:flex;align-items:center;gap:16px;">
-        <div class="slide-counter">03 / 08</div>
+        <div class="slide-counter">04 / 07</div>
         <img src="logo-nv-white.png" alt="NowVertical" style="height:18px;width:auto;opacity:0.3;">
       </div>
     </div>
   </div>
 
   <!-- ══════════════ SLIDE 4 — CDC ══════════════ -->
-  <div class="slide" id="slide-4">
-    <div class="glow-line"></div>
-    <div class="slide-header">
-      <img src="logo-nv-white.png" alt="NowVertical" style="height:28px;width:auto;">
-      <div class="header-tag">Captura de Dados</div>
-    </div>
-    <div class="cdc-body">
-      <div class="eyebrow">2nd Mile · Integração</div>
-      <h2 class="slide-title">Batch e CDC — <span class="accent">cada um no seu contexto</span></h2>
-      <div class="compare-grid">
-        <div class="compare-col col-batch">
-          <div class="col-header">
-            <div class="col-icon">🗓️</div>
-            <div class="col-title">Batch</div>
-            <div class="col-tag tag-neutral">Tradicional</div>
-          </div>
-          <div class="compare-row"><div class="cr-icon">📋</div><div class="cr-content"><div class="cr-label">Janela agendada</div><div class="cr-desc">Execução em horários pré-definidos</div></div></div>
-          <div class="compare-row"><div class="cr-icon">📦</div><div class="cr-content"><div class="cr-label">Carga completa ou incremental</div><div class="cr-desc">Todo o volume ou delta desde última carga</div></div></div>
-          <div class="compare-row"><div class="cr-icon">⏱️</div><div class="cr-content"><div class="cr-label">Latência conforme agendamento</div><div class="cr-desc">Previsível e configurável</div></div></div>
-          <div class="compare-row"><div class="cr-icon">✅</div><div class="cr-content"><div class="cr-label">Ideal para volumes históricos</div><div class="cr-desc">Consolidações, relatórios periódicos</div></div></div>
-        </div>
-        <div class="compare-col col-cdc">
-          <div class="col-header">
-            <div class="col-icon">⚡</div>
-            <div class="col-title">CDC</div>
-            <div class="col-tag tag-cyan">Near/Real-time</div>
-          </div>
-          <div class="compare-row"><div class="cr-icon">🔄</div><div class="cr-content"><div class="cr-label">Evento a evento</div><div class="cr-desc">Cada INSERT, UPDATE, DELETE capturado</div></div></div>
-          <div class="compare-row"><div class="cr-icon">🎯</div><div class="cr-content"><div class="cr-label">Só o que mudou</div><div class="cr-desc">Zero redundância, zero impacto na origem</div></div></div>
-          <div class="compare-row"><div class="cr-icon">⚡</div><div class="cr-content"><div class="cr-label">Latência mínima — near real-time</div><div class="cr-desc">Segundos entre origem e destino</div></div></div>
-          <div class="compare-row"><div class="cr-icon">✅</div><div class="cr-content"><div class="cr-label">Ideal para decisão em tempo real</div><div class="cr-desc">Dashboards live, alertas, IA operacional</div></div></div>
-        </div>
-      </div>
-      <div class="cdc-message">
-        Batch e CDC <span class="accent">não competem</span> — se complementam.<br>
-        A escolha é sobre o que o negócio precisa: processamento histórico ou <span class="accent">visibilidade agora.</span>
-      </div>
-    </div>
-    <div class="slide-footer">
-      <div class="footer-left">Fundação de Dados para IA e Analytics</div>
-      <div style="display:flex;align-items:center;gap:16px;">
-        <div class="slide-counter">04 / 08</div>
-        <img src="logo-nv-white.png" alt="NowVertical" style="height:18px;width:auto;opacity:0.3;">
-      </div>
-    </div>
-  </div>
-
-  <!-- ══════════════ SLIDE 5 — BRONZE → SILVER ══════════════ -->
+  <!-- ══════════════ SLIDE 5 — AS CAMADAS ══════════════ -->
   <div class="slide" id="slide-5">
     <div class="glow-line"></div>
     <div class="slide-header">
       <img src="logo-nv-white.png" alt="NowVertical" style="height:28px;width:auto;">
-      <div class="header-tag">Transformação</div>
+      <div class="header-tag">As Camadas</div>
     </div>
-    <div class="layers-body">
-      <div class="eyebrow">3rd Mile · Snowflake</div>
-      <h2 class="slide-title">Bronze → Silver — <span class="accent">da estrutura à confiança</span></h2>
-      <div class="layers-compare">
-        <div class="layer-col col-bronze">
-          <div class="lc-header">
-            <div class="lc-dot" style="background:#cd8a3a;"></div>
-            <div class="lc-title">Bronze</div>
-            <div class="lc-subtitle">Estrutura</div>
+    <div class="layers-full-body">
+      <div class="eyebrow">3rd Mile · Snowflake + Qlik Talend Cloud</div>
+      <h2 class="slide-title" style="font-size:clamp(20px,2.2vw,32px);margin-bottom:8px;">Da origem ao dado pronto — <span class="accent">camada por camada</span></h2>
+      <div class="layer-cards-row">
+
+        <!-- RAW -->
+        <div class="lc-card lc-raw">
+          <div class="lc-card-header">
+            <div class="lc-card-name">RAW</div>
+            <div class="lc-card-badge">Origem</div>
           </div>
-          <div class="lc-item"><div class="lc-bullet" style="background:#cd8a3a;"></div><div class="lc-text">Tipagem e padronização de campos</div></div>
-          <div class="lc-item"><div class="lc-bullet" style="background:#cd8a3a;"></div><div class="lc-text">Deduplicação de registros</div></div>
-          <div class="lc-item"><div class="lc-bullet" style="background:#cd8a3a;"></div><div class="lc-text">Fiel à origem <span>— sem regra de negócio</span></div></div>
-          <div class="lc-item"><div class="lc-bullet" style="background:#cd8a3a;"></div><div class="lc-text">Rastreável até o evento de CDC</div></div>
-        </div>
-        <div class="layer-col col-silver">
-          <div class="lc-header">
-            <div class="lc-dot" style="background:#5aacff;"></div>
-            <div class="lc-title">Silver</div>
-            <div class="lc-subtitle">Confiança</div>
+          <div class="lc-card-body">
+            <div class="lc-item">Dado bruto · fiel à origem</div>
+            <div class="lc-item">Auditável e reprocessável</div>
+            <div class="lc-item"><span class="lc-qtc">QTC</span> CDC · near/real-time · zero impacto na origem</div>
           </div>
-          <div class="lc-item"><div class="lc-bullet" style="background:#5aacff;"></div><div class="lc-text">Joins com dimensões <span>— produto, loja, vendedor</span></div></div>
-          <div class="lc-item"><div class="lc-bullet" style="background:#5aacff;"></div><div class="lc-text">Agrupamentos e campos calculados</div></div>
-          <div class="lc-item"><div class="lc-bullet" style="background:#5aacff;"></div><div class="lc-text">Margem, ticket médio, variação de período</div></div>
-          <div class="lc-item"><div class="lc-bullet" style="background:#5aacff;"></div><div class="lc-text">Regras de qualidade <span>— dado rejeitado com visibilidade</span></div></div>
+          <div class="lc-card-result">
+            Cada venda chega no Snowflake em segundos, com rastreabilidade completa
+          </div>
         </div>
-      </div>
-      <div class="layers-message">
-        Bronze é <span class="accent">estrutura.</span> Silver é <span class="accent">contexto.</span><br>
-        O dado não muda — o que muda é o que você consegue <span class="accent">perguntar para ele.</span>
+
+        <!-- BRONZE -->
+        <div class="lc-card lc-bronze">
+          <div class="lc-card-header">
+            <div class="lc-card-name">BRONZE</div>
+            <div class="lc-card-badge">Consolidação</div>
+          </div>
+          <div class="lc-card-body">
+            <div class="lc-item">Consolidação dos dados da Raw Zone</div>
+            <div class="lc-item">Armazenamento estruturado</div>
+            <div class="lc-item"><span class="lc-qtc">QTC</span> Pipeline No-Code · ingestão contínua</div>
+          </div>
+          <div class="lc-card-result">
+            Dado consolidado, armazenado e rastreável — pronto para transformação
+          </div>
+        </div>
+
+        <!-- SILVER -->
+        <div class="lc-card lc-silver">
+          <div class="lc-card-header">
+            <div class="lc-card-name">SILVER</div>
+            <div class="lc-card-badge">Confiança</div>
+          </div>
+          <div class="lc-card-body">
+            <div class="lc-item">Tipagem · deduplicação · padronização</div>
+            <div class="lc-item">Joins com produto, loja, vendedor</div>
+            <div class="lc-item">Campos calculados: margem, ticket médio</div>
+            <div class="lc-item"><span class="lc-qtc">QTC</span> Transformação IA/No-Code · regras de qualidade</div>
+          </div>
+          <div class="lc-card-result">
+            Dado confiável, com contexto de negócio e qualidade aplicada
+          </div>
+        </div>
+
+        <!-- GOLD -->
+        <div class="lc-card lc-gold">
+          <div class="lc-card-header">
+            <div class="lc-card-name">GOLD</div>
+            <div class="lc-card-badge">Valor</div>
+          </div>
+          <div class="lc-card-body">
+            <div class="lc-item">Conjuntos de dados refinados por assunto</div>
+            <div class="lc-item">Granularidade loja / dia / SKU</div>
+            <div class="lc-item">Agregações pré-calculadas</div>
+            <div class="lc-item"><span class="lc-qtc">QTC</span> Criação de Data Marts · otimização para consumo</div>
+          </div>
+          <div class="lc-card-result">
+            Data Mart pronto para painel, API e decisão em tempo real
+          </div>
+        </div>
+
+        <!-- IA READY -->
+        <div class="lc-card lc-ia">
+          <div class="lc-card-header">
+            <div class="lc-card-name">IA</div>
+            <div class="lc-card-badge">Ready</div>
+          </div>
+          <div class="lc-card-body">
+            <div class="lc-item">Descrições + contexto de venda → texto estruturado</div>
+            <div class="lc-item">Embeddings via Snowflake Cortex</div>
+            <div class="lc-item"><span class="lc-qtc">QTC</span> Knowledge Base vetorizada · RAG-ready</div>
+          </div>
+          <div class="lc-card-result">
+            Agente responde perguntas de negócio em linguagem natural — sem SQL
+          </div>
+        </div>
+
       </div>
     </div>
     <div class="slide-footer">
       <div class="footer-left">Fundação de Dados para IA e Analytics</div>
       <div style="display:flex;align-items:center;gap:16px;">
-        <div class="slide-counter">05 / 08</div>
+        <div class="slide-counter">05 / 07</div>
         <img src="logo-nv-white.png" alt="NowVertical" style="height:18px;width:auto;opacity:0.3;">
       </div>
     </div>
   </div>
 
-  <!-- ══════════════ SLIDE 6 — GOLD + IA READY ══════════════ -->
+  <!-- ══════════════ SLIDE 6 — DATA PRODUCT + CONSUMO ══════════════ -->
   <div class="slide" id="slide-6">
-    <div class="glow-line"></div>
-    <div class="slide-header">
-      <img src="logo-nv-white.png" alt="NowVertical" style="height:28px;width:auto;">
-      <div class="header-tag">Gold + IA Ready</div>
-    </div>
-    <div class="gold-body">
-      <div class="eyebrow">3rd Mile · Snowflake</div>
-      <h2 class="slide-title">Gold + IA Ready — <span class="accent">dado que gera valor</span></h2>
-      <div class="gold-grid">
-        <div class="gold-col col-gold">
-          <div class="gc-header">
-            <div class="gc-icon">🥇</div>
-            <div class="gc-title">Gold Layer</div>
-          </div>
-          <div class="metric-cards">
-            <div class="metric-card"><div class="metric-value">#1</div><div class="metric-label">Top SKU</div></div>
-            <div class="metric-card"><div class="metric-value">↑12%</div><div class="metric-label">Margem</div></div>
-            <div class="metric-card"><div class="metric-value">R$284</div><div class="metric-label">Ticket Médio</div></div>
-          </div>
-          <div class="gc-item"><div class="gc-bullet" style="background:#ffd700;"></div><div class="gc-text">Granularidade loja / dia / SKU</div></div>
-          <div class="gc-item"><div class="gc-bullet" style="background:#ffd700;"></div><div class="gc-text">Agregações pré-calculadas para performance</div></div>
-          <div class="gc-item"><div class="gc-bullet" style="background:#ffd700;"></div><div class="gc-text">Particionado e clusterizado no Snowflake</div></div>
-        </div>
-        <div class="gold-col col-ai">
-          <div class="gc-header">
-            <div class="gc-icon">🤖</div>
-            <div class="gc-title">IA Ready</div>
-          </div>
-          <div class="gc-item"><div class="gc-bullet"></div><div class="gc-text">Descrições de produto + contexto de venda → texto estruturado</div></div>
-          <div class="gc-item"><div class="gc-bullet"></div><div class="gc-text">Embeddings gerados via Snowflake Cortex</div></div>
-          <div class="gc-item"><div class="gc-bullet"></div><div class="gc-text">Knowledge Base vetorizada — RAG-ready</div></div>
-          <div class="ai-example">
-            <div class="ai-label">💬 Pergunta em linguagem natural</div>
-            <div class="ai-question">"Quais produtos mais venderam no mês passado?"</div>
-            <div class="ai-response">→ Sem SQL. Sem analista intermediário. Resposta com contexto real.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="slide-footer">
-      <div class="footer-left">Fundação de Dados para IA e Analytics</div>
-      <div style="display:flex;align-items:center;gap:16px;">
-        <div class="slide-counter">06 / 08</div>
-        <img src="logo-nv-white.png" alt="NowVertical" style="height:18px;width:auto;opacity:0.3;">
-      </div>
-    </div>
-  </div>
-
-  <!-- ══════════════ SLIDE 7 — DATA PRODUCT + CONSUMO ══════════════ -->
-  <div class="slide" id="slide-7">
     <div class="glow-line"></div>
     <div class="slide-header">
       <img src="logo-nv-white.png" alt="NowVertical" style="height:28px;width:auto;">
@@ -1522,14 +1789,14 @@
     <div class="slide-footer">
       <div class="footer-left">Fundação de Dados para IA e Analytics</div>
       <div style="display:flex;align-items:center;gap:16px;">
-        <div class="slide-counter">07 / 08</div>
+        <div class="slide-counter">06 / 07</div>
         <img src="logo-nv-white.png" alt="NowVertical" style="height:18px;width:auto;opacity:0.3;">
       </div>
     </div>
   </div>
 
-  <!-- ══════════════ SLIDE 8 — FECHAMENTO ══════════════ -->
-  <div class="slide" id="slide-8">
+  <!-- ══════════════ SLIDE 7 — FECHAMENTO ══════════════ -->
+  <div class="slide" id="slide-7">
     <div class="glow-line" style="grid-column:1/-1;"></div>
     <div class="slide-header">
       <img src="logo-nv-white.png" alt="NowVertical" style="height:28px;width:auto;">
@@ -1573,7 +1840,7 @@
     <div class="slide-footer">
       <div class="footer-left">Fundação de Dados para IA e Analytics</div>
       <div style="display:flex;align-items:center;gap:16px;">
-        <div class="slide-counter">08 / 08</div>
+        <div class="slide-counter">07 / 07</div>
         <img src="logo-nv-white.png" alt="NowVertical" style="height:18px;width:auto;opacity:0.3;">
       </div>
     </div>
@@ -1665,7 +1932,7 @@ document.addEventListener('mouseleave', () => {
 
 // ── NAVIGATION ──
 let current = 1;
-const total = 8;
+const total = 7;
 
 function goTo(n) {
   if (n < 1 || n > total) return;
