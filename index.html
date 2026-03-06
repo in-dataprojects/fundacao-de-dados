@@ -708,6 +708,44 @@
   }
 
   /* ══════════════════════════════════════
+     SLIDES 7 & 8 — VÍDEO
+  ══════════════════════════════════════ */
+  .video-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 64px 20px;
+    gap: 12px;
+    justify-content: center;
+  }
+  .video-meta {
+    flex-shrink: 0;
+  }
+  .video-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+    max-width: 680px;
+  }
+  .video-player-wrap {
+    flex: 1;
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #000;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+    min-height: 0;
+  }
+  .video-player-wrap iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  /* ══════════════════════════════════════
      SLIDE 4 — CDC
   ══════════════════════════════════════ */
   .cdc-body {
@@ -1051,13 +1089,13 @@
   /* ══════════════════════════════════════
      SLIDE 8 — FECHAMENTO + CTA
   ══════════════════════════════════════ */
-  #slide-7.active {
+  #slide-9.active {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto auto;
   }
-  #slide-7 .slide-header { grid-column: 1 / -1; }
-  #slide-7 .slide-footer { grid-column: 1 / -1; }
+  #slide-9 .slide-header { grid-column: 1 / -1; }
+  #slide-9 .slide-footer { grid-column: 1 / -1; }
 
   .closing-left {
     display: flex; flex-direction: column;
@@ -1451,7 +1489,7 @@
     <div class="slide-footer">
       <div class="footer-left">Fundação de Dados para IA e Analytics</div>
       <div style="display:flex;align-items:center;gap:16px;">
-        <div class="slide-counter">01 / 07</div>
+        <div class="slide-counter">01 / 09</div>
         <img src="logo-nv-white.png" alt="NowVertical" style="height:18px;width:auto;opacity:0.3;">
       </div>
     </div>
@@ -1503,7 +1541,7 @@
     <div class="slide-footer">
       <div class="footer-left">Fundação de Dados para IA e Analytics</div>
       <div style="display:flex;align-items:center;gap:16px;">
-        <div class="slide-counter">02 / 07</div>
+        <div class="slide-counter">02 / 09</div>
         <img src="logo-nv-white.png" alt="NowVertical" style="height:18px;width:auto;opacity:0.3;">
       </div>
     </div>
@@ -1558,7 +1596,7 @@
     <div class="slide-footer">
       <div class="footer-left">Fundação de Dados para IA e Analytics</div>
       <div style="display:flex;align-items:center;gap:16px;">
-        <div class="slide-counter">03 / 07</div>
+        <div class="slide-counter">03 / 09</div>
         <img src="logo-nv-white.png" alt="NowVertical" style="height:18px;width:auto;opacity:0.3;">
       </div>
     </div>
@@ -1635,7 +1673,7 @@
     <div class="slide-footer">
       <div class="footer-left">Fundação de Dados para IA e Analytics</div>
       <div style="display:flex;align-items:center;gap:16px;">
-        <div class="slide-counter">04 / 07</div>
+        <div class="slide-counter">04 / 09</div>
         <img src="logo-nv-white.png" alt="NowVertical" style="height:18px;width:auto;opacity:0.3;">
       </div>
     </div>
@@ -1741,7 +1779,7 @@
     <div class="slide-footer">
       <div class="footer-left">Fundação de Dados para IA e Analytics</div>
       <div style="display:flex;align-items:center;gap:16px;">
-        <div class="slide-counter">05 / 07</div>
+        <div class="slide-counter">05 / 09</div>
         <img src="logo-nv-white.png" alt="NowVertical" style="height:18px;width:auto;opacity:0.3;">
       </div>
     </div>
@@ -1789,14 +1827,78 @@
     <div class="slide-footer">
       <div class="footer-left">Fundação de Dados para IA e Analytics</div>
       <div style="display:flex;align-items:center;gap:16px;">
-        <div class="slide-counter">06 / 07</div>
+        <div class="slide-counter">06 / 09</div>
         <img src="logo-nv-white.png" alt="NowVertical" style="height:18px;width:auto;opacity:0.3;">
       </div>
     </div>
   </div>
 
-  <!-- ══════════════ SLIDE 7 — FECHAMENTO ══════════════ -->
+  <!-- ══════════════ SLIDE 7 — VÍDEO 1 ══════════════ -->
   <div class="slide" id="slide-7">
+    <div class="glow-line"></div>
+    <div class="slide-header">
+      <img src="logo-nv-white.png" alt="NowVertical" style="height:28px;width:auto;">
+      <div class="header-tag">Demo · Parte 1</div>
+    </div>
+    <div class="video-body">
+      <div class="video-meta">
+        <div class="eyebrow">Fundação em prática</div>
+        <h2 class="slide-title" style="font-size:clamp(18px,2vw,28px);margin-bottom:6px;">Construindo a fundação — <span class="accent">do projeto ao dado no Snowflake</span></h2>
+        <p class="video-desc">Criação do projeto no QTC, configuração do pipeline e primeiros dados carregados na camada raw.</p>
+      </div>
+      <div class="video-player-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/NSLklbpxmXE?rel=0&modestbranding=1&color=white&iv_load_policy=3"
+          title="Construindo a fundação — do projeto ao dado no Snowflake"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <div class="footer-left">Fundação de Dados para IA e Analytics</div>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <div class="slide-counter">07 / 09</div>
+        <img src="logo-nv-white.png" alt="NowVertical" style="height:18px;width:auto;opacity:0.3;">
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ SLIDE 8 — VÍDEO 2 ══════════════ -->
+  <div class="slide" id="slide-8">
+    <div class="glow-line"></div>
+    <div class="slide-header">
+      <img src="logo-nv-white.png" alt="NowVertical" style="height:28px;width:auto;">
+      <div class="header-tag">Demo · Parte 2</div>
+    </div>
+    <div class="video-body">
+      <div class="video-meta">
+        <div class="eyebrow">CDC em ação</div>
+        <h2 class="slide-title" style="font-size:clamp(18px,2vw,28px);margin-bottom:6px;">CDC em ação — <span class="accent">do ERP ao Snowflake em tempo real</span></h2>
+        <p class="video-desc">Uma venda é registrada no ERP da NV Ferragens e replicada via CDC — ao vivo, em segundos.</p>
+      </div>
+      <div class="video-player-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/QRwtH0zT-H0?rel=0&modestbranding=1&color=white&iv_load_policy=3"
+          title="CDC em ação — do ERP ao Snowflake em tempo real"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <div class="footer-left">Fundação de Dados para IA e Analytics</div>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <div class="slide-counter">08 / 09</div>
+        <img src="logo-nv-white.png" alt="NowVertical" style="height:18px;width:auto;opacity:0.3;">
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ SLIDE 9 — FECHAMENTO ══════════════ -->
+  <div class="slide" id="slide-9">
     <div class="glow-line" style="grid-column:1/-1;"></div>
     <div class="slide-header">
       <img src="logo-nv-white.png" alt="NowVertical" style="height:28px;width:auto;">
@@ -1840,7 +1942,7 @@
     <div class="slide-footer">
       <div class="footer-left">Fundação de Dados para IA e Analytics</div>
       <div style="display:flex;align-items:center;gap:16px;">
-        <div class="slide-counter">07 / 07</div>
+        <div class="slide-counter">09 / 09</div>
         <img src="logo-nv-white.png" alt="NowVertical" style="height:18px;width:auto;opacity:0.3;">
       </div>
     </div>
@@ -1932,7 +2034,7 @@ document.addEventListener('mouseleave', () => {
 
 // ── NAVIGATION ──
 let current = 1;
-const total = 7;
+const total = 9;
 
 function goTo(n) {
   if (n < 1 || n > total) return;
